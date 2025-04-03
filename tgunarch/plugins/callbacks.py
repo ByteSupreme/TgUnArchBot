@@ -191,7 +191,7 @@ async def check_fsub_callback(unzip_bot: Client, callback_query: CallbackQuery):
             text="Well Now Click Below Button to USE ME!",
             reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("💎 BUY VIP", url=Config.OWNER_USERNAME)],
+            [InlineKeyboardButton("💎 BUY VIP", url=f"https://t.me/{Config.OWNER_USERNAME}")],
             [InlineKeyboardButton("🚀 USE FREE", url=f"https://t.me/{Config.BOT_USERNAME}?start=start")],
             ]
             ),
