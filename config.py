@@ -13,7 +13,9 @@ class Config:
     FREE_USER_TIMER = 1800
     BOT_TOKEN = "xxxxx"
     BOT_THUMB = f"{os.path.dirname(__file__)}/bot_thumb.jpg"
+    BOT_USERNAME = "xxxxxxx"
     BOT_OWNER = xxxxxx
+    OWNER_USERNAME = "xxxxx"
     # Default chunk size (0.005 MB → 1024*6) Increase if you need faster downloads
     CHUNK_SIZE = 1024 * 1024 * 10  # 10 MB
     DOWNLOAD_LOCATION = f"{os.path.dirname(__file__)}/Downloaded"
