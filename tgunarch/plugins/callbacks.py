@@ -186,7 +186,16 @@ async def check_fsub_callback(unzip_bot: Client, callback_query: CallbackQuery):
         await unzipbot_client.get_chat_member(Config.AUTH_CHANNEL, user_id)
         await callback_query.answer("Thanks for joining... Hehe.", show_alert=True)
         await callback_query.message.delete()
-        await unzipbot_client.send_message(chat_id=user_id, text="Well Now Send /start to continue.")
+        await unzipbot_client.send_message(
+            chat_id=user_id,
+            text="Well Now Click Below Button to USE ME!",
+            reply_markup=InlineKeyboardMarkup(
+            [
+            [InlineKeyboardButton("💎 BUY VIP", url=Config.OWNER_USERNAME)],
+            [InlineKeyboardButton("🚀 USE FREE", url=f"https://t.me/{Config.BOT_USERNAME}?start=start")],
+            ]
+            ),
+        )
     except UserNotParticipant:
         second_image = "https://graph.org/file/7a0dcc38e2e4a142e0e6e-9bce8dfc12866eb8b2.jpg"
         channel_link = (await unzipbot_client.get_chat(Config.AUTH_CHANNEL)).invite_link
