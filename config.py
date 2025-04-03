@@ -8,6 +8,7 @@ class Config:
     API_HASH = "xxxxx"
     BASE_LANGUAGE = "en"
     AUTH_CHANNEL = -100xxxx
+    CHANNEL_URL = "xxxx"
     #1800 seconds = 30 minutes
     FREE_USER_TIMER = 1800
     BOT_TOKEN = "xxxxx"
