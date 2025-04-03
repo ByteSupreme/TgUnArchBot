@@ -197,6 +197,24 @@ async def help_me(_, message: Message):
         await sleep(f.value)
         await help_me(_, message)
 
+@unzipbot_client.on_message(filters.command("BuyVIP"))
+async def buy_vip(_, message: Message):
+    try:
+        await message.reply_text(
+            text=(
+                "💎 **Want to become a VIP user?** 💎\n\n"
+                "🔹 Enjoy unrestricted access and premium features!\n"
+                "🔗 Contact the bot owner to purchase VIP access:\n"
+                f"📩 Contact Owner:@{Config.OWNER_USERNAME}\n"
+            ),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("💎 Buy VIP", url=f"https://t.me/{Config.OWNER_USERNAME}")]]
+            ),
+        )
+    except (FloodWait, FloodPremiumWait) as f:
+        await sleep(f.value)
+        await buy_vip(_, message)
 
 @unzipbot_client.on_message(filters.command("about"))
 async def about_me(_, message: Message):
