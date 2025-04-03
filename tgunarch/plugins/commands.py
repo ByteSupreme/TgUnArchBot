@@ -248,7 +248,13 @@ async def extract_archive(_, message: Message):
             last_time = last_used.get(user_id)
             current_time = datetime.utcnow()
             if last_time and (current_time - last_time).total_seconds() < Config.FREE_USER_TIMER:
-                return await message.reply(f"⏳ You can extract again in {(Config.FREE_USER_TIMER - int(last_time and (current_time - last_time).total_seconds())) // 60} minutes. Please wait.")
+                return await message.reply(
+                    f"⏳ You can extract again in {(Config.FREE_USER_TIMER - int(last_time and (current_time - last_time).total_seconds())) // 60} minutes. Please wait.\n\n"
+                    "💎 To get unrestricted use, consider buying VIP access!",
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("💎 Buy VIP", url=f"https://t.me/{Config.OWNER_USERNAME}")]]
+                    )
+                )
             last_used[user_id] = current_time  # Update last used time
 
         if os.path.exists(Config.LOCKFILE):
@@ -458,7 +464,13 @@ async def merging(_, message: Message):
         last_time = last_used.get(user_id)
         current_time = datetime.utcnow()
         if last_time and (current_time - last_time).total_seconds() < Config.FREE_USER_TIMER:
-            return await message.reply(f"⏳ You can extract again in {(Config.FREE_USER_TIMER - int(last_time and (current_time - last_time).total_seconds())) // 60} minutes. Please wait.")
+            return await message.reply(
+                f"⏳ You can extract again in {(Config.FREE_USER_TIMER - int(last_time and (current_time - last_time).total_seconds())) // 60} minutes. Please wait.\n\n"
+                "💎 To get unrestricted use, consider buying VIP access!",
+                reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton("💎 Buy VIP", url=f"https://t.me/{Config.OWNER_USERNAME}")]]
+                )
+            )
         last_used[user_id] = current_time  # Update last used time
     try:
         merge_msg = await message.reply(
@@ -925,7 +937,7 @@ async def del_tasks(_, message: Message):
 
 
 async def send_logs(user_id):
-    with open("unzip-bot.log", "rb") as doc_f:
+    with open("tgunarch-bot.log", "rb") as doc_f:
         message = None
 
         try:
