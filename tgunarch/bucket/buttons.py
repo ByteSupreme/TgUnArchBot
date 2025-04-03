@@ -1,4 +1,5 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from config import Config
 
 from .messages import Messages
 from tgunarch.others.db.database import get_lang
@@ -18,7 +19,7 @@ class Buttons:
             ],
             [
                 InlineKeyboardButton(
-                    messages.get("buttons", "RATE"), url="https://t.me/The_Hacking_Zone"
+                    messages.get("buttons", "RATE"), url=Config.CHANNEL_URL
                 ),
             ],
         ]
@@ -229,7 +230,7 @@ class Buttons:
         [
             [
                 InlineKeyboardButton(
-                    messages.get("buttons", "RATE"), url="https://t.me/The_Hacking_Zone"
+                    messages.get("buttons", "RATE"), url=Config.CHANNEL_URL
                 ),
             ],
         ]
